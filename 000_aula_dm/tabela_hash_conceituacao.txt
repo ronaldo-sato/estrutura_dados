@@ -1,0 +1,86 @@
+Tabela Hash (tabela de dispersão, tabela de espalhamento) é uma estrutura de 
+dados que associa chaves de pesquisa a valores, por meio de uma função (hash ou 
+espalhamento), a qual permite através da chave fazer uma busca rápida 
+(eficiente) para obter o valor correspondente.
+
+Portanto, é importante que a função hash:
+
+- produza um número baixo de colisões;
+- facilmente computável;
+- ser uniforme (homogênea).
+
+(Em geral, função de números primos multiplicada por fator (base^potência) 
+diminui colisões.)
+
+Fator de Carga:
+
+0 < (tamanho do vetor / número máximo de elementos) < 1
+
+    tendendo a 1: poucas posições vazias -> mais colisões
+    tendendo a 0: muitas posições vazias -> gasto de memória
+
+Tratamento colisões:
+
+(1) inserir ao lado da posição já ocupada, usando lista encadeada;
+(2) ou inserir na próxima posição livre.
+
+(1) Encadeamento exterior ou separado -> Listas encadeadas
+(2) Encadeamento interior ou aberto:
+    -> Heterogêneo
+    -> Homogêneo (Teste Linear)
+
+(1) Encadeamento Exterior
+
+As chaves serão ponteiros, os endereços das listas encadeadas, e quando 
+houver colisão a lista encadeada vai aumentando. 
+(Na lista encadeada, cada nó tem 2 informações, o valor e o endereço 
+para do próximo elemento, se não houver próximo, o endereço do próximo
+é nulo.)
+
+Se a função hash não espalhar bem os elementos pelo vetor de chaves, haverá 
+(poucas) listas encadeadas grandes, ou seja, com espalhamento ineficiente, 
+pois se a lista encadeada for muito grande, a busca dos elementos será 
+custosa. (E a tabela hash é justamente para melhorar as buscas.)
+
+Funções Principais: Inserção, Busca, Remoção.
+
+(2) Encadeamento Interior Heterogêneo
+
+As colições irão ficar "separadas", como se não se misturasse, com os 
+elementos inseridos anteriormente, como água e óleo que não se misturam.
+Quando houver colisão, o valor é inserido na primeira posição vazia, então
+para buscar um elemento, se ele estiver na parte do vetor reservada para as 
+colisões, a busca terá de ser feita sequencialmente, o que pode ser 
+ineficiente. Quando uma posição é removida, ela deve ser diferenciada de 
+vazio para que em caso de busca, ela seja feita nas colisões (no caso de um 
+elemento no vetor fora das colisões ou no vetor de colisões já tiver sido 
+removido.) 
+
+Vazio significa uma posição que não foi usada ainda, mas se ela já tiver sido 
+ocupada e removida deverá ser diferenciada como "disponível", indicando em 
+caso de busca a necessidade de verificação nas colisões. 
+
+    vazio = -1
+    disponivel = -2
+
+(2) Encadeamento Interior Homogêneo (Teste Linear)
+
+Quando um elemento for inserido e houver colisão ele é inserido na próxima
+posição vazia ou disponível. Isso gera colisões secundários, ou seja, quando 
+determinada posição que um elemento ocuparia já está ocupada, então ele 
+também é inserido na próxima posição vazia ou disponível. Assim, a busca de 
+um elemento ocorre da posição onde ele deveria estar para baixo, até 
+encontrar o elemento ou uma posição vazia. Portanto, dependendo do fator de 
+carga, a busca será sequencial ou quase sequencial. 
+
+Teste linear: envolve a busca da próxima posição vazia disponível na tabela, 
+posteriormente verifica-se sequencialmente cada índice subsequente até encontrar
+um espaço vazio.
+
+Compilar sem colições (idealização):
+
+g++ main_hash.cpp hash_noColisoin.cpp aluno.cpp -o hash_noColisions.exe
+
+Compilar com colisões (realidade):
+
+g++ main_hash.cpp hash_colisions.cpp aluno.cpp -o hash_colisions.exe

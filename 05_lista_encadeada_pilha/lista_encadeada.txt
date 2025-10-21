@@ -1,0 +1,96 @@
+/* LISTAS LINEARES */
+
+// Anteriormente implementamos pilha e fila como listas lineares sequenciais.
+
+// Listas lineares são estruturas de dados na quais cada elemento é precedido
+// por um elemento e sucedido por outro, com exceção do primeiro que não tem
+// predecessor e do último que não tem sucessor. 
+
+// Nas listas lineares sequenciais a ordem lógica do elementos é a mesma que a 
+// ordem física. Isto é, elementos vizinhos na lista estão em posições visinhas
+// na memória. 
+
+// Essa organização confere acesso em tempo constante a qualquer momento através
+// do índice do elemento. 
+
+// Supondo um vetor ordenado, poderíamos fazer uma busca binária em um elemento
+// através dos índices em tempo constante O(log(n)).
+
+// Desvantagens:
+
+// Necessário alocar espaço suficiente para todos os elementos de uma só vez (é 
+// necessário saber o tamanho do vetor previamente, se faltar espaço é oneroso 
+// mover todos os elementos para uma nova posição de memória com mais espaço).
+
+// Para manter a ordem, pode ser necessário muitos deslocamentos na memória (no
+// caso de um array ordenado, para manter a ordenação, é necessário realizar os
+// deslocamentos após inserções e remoções).
+
+
+/* LISTAS ENCADEADAS (Linked List) */
+
+// Listas encadeadas são listas lineares em que a ordem lógica dos elementos não
+// é a mesma que a ordem física na memória. Dessa forma, cada elemento continua
+// tendo um sucessor e um predecessor (mas os elementos estão espalhados na 
+// memória).
+
+// Assim, em uma lista encadeada, os dados são armazenados de forma sequencial 
+// em estruturas chamadas de nós.
+
+// Cada nó é uma estrutura individual composta por um campo de informação e um
+// campo de endereço, ponteiro de ligação (link), que conecta ao próximo 
+// nó da lista (mantendo a ordem lógica).
+
+// Assim, a lista permite que a gente conecte quantos elementos forem 
+// necessários, sem se preocupar em pré-alocar espaço. 
+
+// Essa organização não permite a vantagem das listas lineares sequencias, que 
+// é a de ter acesso em tempo constante a qualquer elemento, dado o índice do 
+// elemento.
+
+// Para encontrar um elemento, precisamos percorrer todos os elementos 
+// predecessores, um por um, até encontrar o elemento procurado. 
+
+// Como consequência, a busca binária deixa de fazer sentido, dado que não 
+// acessamos o elemento do meio de um array em tempo constante. 
+
+// No entanto, essa estrutura encadeada possui vantagens de permitir aumentar ou
+// diminuir o número de elementos durante a execução do programa e, a manutenção
+// da ordem lógica não exigirá deslocamentos de elementos. 
+
+// A lista encadeada por ser simples ou dupla. A lista simples é a forma 
+// na qual vamos encadeando os elementos em que cada nó aponta somente para o 
+// seguinte. A lista duplamente encadeada contém também ponteiros para os 
+// elementos anteriores.
+
+// Além disso, a lista duplamente encadeada pode ser do tipo circular, ou seja,
+// quando o último elemento aponta para o primeiro. Esse tipo, é utilizado em 
+// aplicações cíclicas, por exemplo, de geometria, mapas.  
+
+
+/* PILHAS COM LISTAS ENCADEADAS */
+
+// (Como pilhas são estruturas lineares - implementação anterior -, podemos 
+// implementá-las como listas encadeadas.)
+
+// O primeiro elemento a entrar na estrutura tem que ser o último a sair. E 
+// o último elemento a entrar tem que ser o primeiro a sair. 
+
+// As inserções e remoções ocorrem no topo da pilha. 
+
+// Inserções e remoções devem ocorrer em tempo constante. Em outras palavras,
+// independem do número de elementos na estrutura.
+
+
+/* FILAS COM LISTAS ENCADEADAS */
+
+// (Como filas são estruturas lineares - implementação anterior -, podemos 
+// implementá-las como listas encadeadas também.)
+
+// O primeiro elemento a entrar é o primeiro a sair. E o último elemento a 
+// entrar deve ser o último elemento a sair.
+
+// Inserções ocorrem no final da fila, e remoções ocorrem no início.
+
+// Inserções e remoções devem ocorrer em tempo constante. Em outras palavras, 
+// independem do número de elementos na estrutura. 

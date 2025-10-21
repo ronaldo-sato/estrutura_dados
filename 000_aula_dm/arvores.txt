@@ -1,0 +1,45 @@
+Estrutura de árvore é uma estrutura de nós, onde cada nó guarda a informação 
+(o valor) e os ponteiros dos nós seguintes. 
+
+
+Ancestralidade de Árvore
+
+Seja x um vértice (nó) de uma árvore com raiz (r):
+
+    ancestral: qualquer nó y no caminho de r a x;
+
+    descendente: x é descendente de y, se y é ancestral de x;
+
+    filho: x é filho de y, se ele é um descendente direto;
+
+    pai: é o ancestral mais próximo. A raiz é o único nó sem pai;
+
+    folha: é um nó sem filhos.
+
+Altura e Profundidade
+
+    Profundidade de um nó: distância do nó até a raiz.
+
+    Altura de um nó: distância do maior caminho até uma folha.
+
+Nó interno: nó que não é folha.
+
+Grau: grau de um nó é o número de filhos. (quantidade de ponteiros que precisam 
+ser armazenbados)
+
+Árvore Binária: cada vértice (nó) tem no máximo 2 filhos (necessário guardar 
+apenas 3 informações: o valor e 2 ponteiros - quando não houver filho para 
+algum lado o respectivo ponteiro será Null).
+
+Numa árvore binária de busca todos os nós à esquerda (descendentes à esquerda) 
+são menores que ele e, todos os nós à direita (descendentes à direita) são 
+maiores que ele. (As subárvores também mantém essa propriedade.)
+
+Árvore Binária de Busca
+
+Uma Árvore Binária é dita de busca, se para cada um de seus nós (vértices), 
+temos que o elemento deste nó é maior que todos os elementos dos nós da 
+subárvore à sua esquerda, e menor que todos os elementos dos nós da subárvore à 
+sua direita.
+
+

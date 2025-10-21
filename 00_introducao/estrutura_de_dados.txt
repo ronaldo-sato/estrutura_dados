@@ -1,0 +1,26 @@
+/* ESTRUTURA DE DADOS */
+
+// Estrutura de dados são formas de armazenamento e organização de dados na 
+// memória de um computador para que possam ser utilizados de forma mais 
+// eficiente.
+
+// Assim, podem ser empregadas em diferentes tipos de aplicações, sendo em 
+// alguns casos bem especializadas e orientadas a tarefas específicas.
+
+// Porém, outras estruturas de dados são de uso mais "geral", sendo usadas 
+// como armazenamento em si ou para gerar outras estruturas de dados mais 
+// complexas.
+
+// TIPOS DE DADOS ABSTRATOS (ADT - Abstract Data Type)
+
+// ADT é um tipo de dados que implementa objetos cujo comportamento é definido 
+// por um conjunto de valores e operações.
+
+// O conceito da estrutura é separada da sua implementação subjacente, ou seja, 
+// o que importa é o que esse tipo faz, mas não como ela faz. 
+
+// Assim, estruturas de dados abstratas são empregadas para simplificar 
+// diversas operações em programação. 
+
+// As principais estruturas de dados abstratas são listas encedeadas, pilhas e 
+// filas.

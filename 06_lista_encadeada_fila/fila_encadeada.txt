@@ -1,0 +1,12 @@
+/* FILAS COM LISTAS ENCADEADAS */
+
+// (Como filas são estruturas lineares - implementação anterior -, podemos 
+// implementá-las como listas encadeadas também.)
+
+// O primeiro elemento a entrar é o primeiro a sair. E o último elemento a 
+// entrar deve ser o último elemento a sair.
+
+// Inserções ocorrem no final da fila, e remoções ocorrem no início.
+
+// Inserções e remoções devem ocorrer em tempo constante. Em outras palavras, 
+// independem do número de elementos na estrutura. 

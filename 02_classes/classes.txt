@@ -1,0 +1,66 @@
+
+/* CLASSES */
+
+// Classes entre outras utilidades possibilidade a modularização do código,
+// separando a visão lógica de uma estrutura de dados, o que pode ser 
+// interpretado como um tipo abstrato de dados, da visão de implementação, 
+// dando uma clara divisão da parte lógica, ou seja a parte pública de uma 
+// estrutura de dados, da parte de implementação e da parte da aplicação dessa 
+// estrutura de dados.
+
+// Em outras palavras, não entraremos nos detalhes teóricos aqui (haverá 
+// uma disciplina específica para isso), apenas vamos ver a sintaxe de classes
+// em C++.
+
+// A unidade básica da Programação Orientada a Objetos (POO) é a classe, que é 
+// uma maneira de encapsular atributos estáticos e comportamento dinâmico em uma
+// capsula (caixa). (Encapsulamento é delimitar uma parte de código.)
+
+// Na POO, o encapsulamento tem proximidade com o mundo atual, por exemplo, uma 
+// geladeira tem suas complexidades, que apenas as pessoas que estudam isso 
+// sabem os detalhes, então quem desenvolveu a geladeira encapsulou as partes 
+// complexas, e quem apenas usa a geladeira precisa saber apenas "como aperta 
+// os botões", então não devemos mexer sem saber nos fios, no sitema de 
+// refrigeração. Assim, o encapsulamento na POO facilita isso, a gente coloca a 
+// implementação separada da interface pública, que as pessoas utilizarão.
+
+// Então, temos o conceito de classe: classe é um módulo usado para criar 
+// objetos, também chamados de instâncias. As classes são moldes para geração 
+// de objetos. Dentro da classe vamos definir explicitamente a interface 
+// pública (compartilhada por todos os objetos - a comunicação com os objetos é 
+// feita pelo uso da interface pública do objeto) separada da implementação 
+// interna da classe (ou seja, a complexidade envolvida na realização de uma 
+// tarefa, que é o que fica "escondido" dentro da classe, o que as outras 
+// pessoas não vão precisar saber).
+
+// Portanto, o que fica dentro da classe é a implementação das estruturas de 
+// dados (a implementação interna) e os métodos que serão usados na classe 
+// (interface pública, por exemplo, inserir um novo elemento, buscar um novo 
+// elemento, atualizar, remover). Assim, na hora de fazer a aplicação das 
+// estruturas de dados, iremos criar objetos das classes para poder utilizar,
+// fazer chamada aos métodos.  
+
+// A vantagem desse paradigma é o isolamento, isto é, quando alterações não 
+// afetam todo o sistema. Esse isolamento facilita a adição de novas 
+// funcionalidades e correção de problemas. Isso possibilita uma certa 
+// facilidade de manutenção, pois como os detalhes da implementação ficam 
+// escondidos dentro da classe, podemos implementar algo diferente para uma 
+// mesma classe. Dessa forma, se não houve alteração na interface pública e a 
+// classe continua realizando o que ela fazia, a modificação fica isolada 
+// dentro da classe.
+
+// Portanto, isso permite separar a visão lógica da visão de implementação e da 
+// visão de aplicação em estrutura de dados. (Isso poderá ser visto na 
+// implementação de pilhas e filas, onde iremos modificar as implementações para
+// a mesma estrutura de dados, mantendo a estrutura pública e modificando apenas
+// atributos privados.)
+
+// A visão lógica de uma classe será sempre criada em um arquivo com 
+// extensão .h. Nesse arquivo, definiremos os membros públicos e privados da 
+// classe (é a declaração da classe). 
+
+// A implementação da classe será sempre feita em um arquivo com extensão .ccp. 
+// O arquivo .cpp deverá sempre importar o arquivo .h com a diretiva include.
+
+
+

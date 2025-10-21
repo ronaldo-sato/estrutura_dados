@@ -1,0 +1,76 @@
+/* FILAS */
+
+// Fila é uma estrutura linear (cada elemento tem somente um predecessor e 
+// somente um sucessor) na qual as inserções ocorrem no final e as remoções
+// ocorrem no início.
+
+// Para entender a ideia e funcionamento de fila, suponha que pacientes para 
+// obter atendimento médico precisam entregar a identidade para uma secretária. 
+// A secretária deve receber o documento e colocar o paciente recém-chegado no 
+// final da fila. Se tem muito paciente, a secretária faz uma pausa. O médico 
+// chamará para o atendimento o paciente no início da fila (o primeiro a chegar 
+// é o primeiro a ser atendido e o último a chegar é o último a ser atendido). 
+// Se a fila estiver vazia, o médico faz uma pausa. 
+
+// Assim, como o exemplo acima, são feitas algumas operações em filas. A 
+// secretária verifica se a fila está cheia, se não estiver cheia ela coloca 
+// alguém no final da fila. O médico procura alguém no início da fila, havendo
+// alguém ele chama essa pessoa, caso contrário, a fila está vazia e ele
+// descansa. 
+
+
+/* OPERAÇÕES COMUNS */
+
+// enqueue() - inserir um elemento no final da fila.
+
+// isFull() - retorna um booleano se a fila está cheia (caso a fila possua 
+// um tamanho máximo determinado).
+
+// dequeue() - retira e retorna o elemento que está no início da fila, se ela 
+// não estiver vazia.
+
+// isEmpty() - retorna um booleano se a fila estiver vazia.
+
+// peek() - retorna um elemento da fila sem removê-lo.
+
+// size() - retorna o tamanho da filha (n° de itens).
+
+
+
+/* RESUMINDO */
+
+// O primeiro elemento a entrar na estrutura tem que ser o primeiro a sair:
+// FIFO (first-in-first-out);
+
+// O último elemento a entrar é o último elemento a sair: 
+// LILO (last-in-last-out); 
+
+// Inserções ocorrem no final e remoções ocorrem no início;
+
+// Objetos podem ser inseridos a qualquer momento, mas apenas o objeto que está
+// a mais tempo na fila pode ser removido;
+
+// Comportamento semelhante a comunicação de processos de sistema operacional 
+// ou acesso a algum recurso compartilhado (o primeiro que tentou usar o 
+// recurso, é o primeiro a usar o recurso); 
+
+
+/* APLICAÇÕES */
+
+// A principal utilidade da estrutura de fila é quando precisamos garantir 
+// que processos acessem recursos compartilhados de forma "justa"; 
+
+// Resposta a requisições de serviços compartilhados, como filas de impressão e
+// acesso ao disco (numa rede de cliente-servidor a primeira máquina que faz a 
+// requisição, normalmente, vai ser a primeira máquina a receber a resposta);
+
+// Troca de mensagens entre processos em um Sistema Operacional;
+
+// Armazenamento de teclas digitadas no teclado;
+
+// Agendamento de tempo de CPU;
+
+// Transferência de dados assíncrona entre processos (buffer, E/S em arquivos);
+
+// Contadores de tíquetes e gerenciamento de filas por senhas (sistema de 
+// retirada de senha, por exemplo, em banco, correio, hospital) 
