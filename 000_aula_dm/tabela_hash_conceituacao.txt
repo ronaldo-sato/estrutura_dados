@@ -1,4 +1,4 @@
-Tabela Hash (tabela de dispersão, tabela de espalhamento) é uma estrutura de 
+Tabela Hash (Tabela de Dispersão, Tabela de Espalhamento) é uma estrutura de 
 dados que associa chaves de pesquisa a valores, por meio de uma função (hash ou 
 espalhamento), a qual permite através da chave fazer uma busca rápida 
 (eficiente) para obter o valor correspondente.

@@ -1,5 +1,5 @@
 Estrutura de árvore é uma estrutura de nós, onde cada nó guarda a informação 
-(o valor) e os ponteiros dos nós seguintes. 
+(um valor) e os ponteiros dos nós seguintes. 
 
 
 Ancestralidade de Árvore
@@ -39,7 +39,5 @@ maiores que ele. (As subárvores também mantém essa propriedade.)
 
 Uma Árvore Binária é dita de busca, se para cada um de seus nós (vértices), 
 temos que o elemento deste nó é maior que todos os elementos dos nós da 
-subárvore à sua esquerda, e menor que todos os elementos dos nós da subárvore à 
-sua direita.
-
-
+subárvore a sua esquerda, e menor que todos os elementos dos nós da
+subárvore a sua direita.

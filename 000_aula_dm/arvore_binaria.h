@@ -20,9 +20,9 @@ class arvoreBinariadeBusca{ // BST - Binary Search Tree
   bool estaVazio();
   bool estaCheio();
   void inserir(Aluno aluno);
-  void remover(Aluno aluno);
-  void removerBusca(Aluno aluno, No*& noAtual);
-  void deletarNo(No*& noAtual);
+  void remover(Aluno aluno);  // chama a função removerBusca
+  void removerBusca(Aluno aluno, No*& noAtual);  // (função recursiva até encontrar o nó:) chama a função deletarNo
+  void deletarNo(No*& noAtual);  // chama a função obterSucessor
   void obterSucessor(Aluno& alunoSucessor, No* temp);
   void buscar(Alluno& aluno, bool& busca); // por referência, se encontrar atualiza busca e aluno
   void imprimirPreOrdem(No* noAtual);
