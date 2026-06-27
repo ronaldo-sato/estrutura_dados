@@ -1,0 +1,201 @@
+/* CONTEXTUALIZAÇÃO TABELA HASH */
+
+Tempo de Buscas:
+
+Busca Sequencial: O(n); (para encontrar determinado elemento, é preciso
+percorrer toda a estrutura de dados, não importando se é uma lista
+encadeada ou vetor.)
+
+Busca Binária: O(log(n)); porém exige que o vetor esteja ordenado.
+
+MOTIVAÇÃO: é possível fazer buscas mais rápido que O(log(n))?
+
+
+/* TABELAS DE HASH */
+
+Tabelas Hash permitem buscas em tempo constante, por meio de chaves
+seguindo determinas restrições (função hash precisa satisfazer algumas
+condições). 
+
+Nessa estrutura, as chaves podem ser a princípio de vários tipos, podem ser
+dicionários, mapas, arrays, associativos, etc (a depender da linguagem).
+
+
+/* ESTRUTURA TABELA HASH - ABSTRAÇÃO DOS DADOS */
+
+A Tabela Hash é uma estrutura, tipo um contêiner, como foi feito com pilhas
+e filas, onde cada elemento está associado a uma chave. Então, quanto à
+abstração temos os seguintes métodos:
+
+retriveItem(key): retorna o valor associado à respectiva chave (key), se
+ela existir, caso contrário, devolve nulo;
+
+insertItem(key, value): insere uma entrada / valor (value) que estará
+associado a chave (key), se ela não existir, caso contrário se ela existir,
+irá atualizar o valor associado a chave.
+
+deleteItem(key, value): remove a chave (key) e o valor (value) associado a
+ela.
+
+Outros métodos (que não serão implementados aqui):
+
+size(): retorno o número de entradas na estrutura;
+
+keySet(): retorna uma lista encadeada de todas as chaves armazenadas na
+tabela;
+
+values(): retorna uma coleção contendo todos os valores associados com as
+chaves armazenadas na tabela;
+
+entrySet(): retorna uma coleção contendo todas as entradas (chave-valor) da
+tabela.
+
+
+/* IMPLEMENTAÇÃO */
+
+A própria chave é usada para organizar os dados em memória. Para que as
+inserções, buscas e remoções ocorram em tempo constante, a chave precisa
+indicar na memória o respectivo registro. Portanto para isso, deve haver um
+mapeamento da chave de busca para o endereço de memória. 
+
+Cada entrada da estrutura é composta por um par "chave-valor" (key, value),
+portanto é essa associação que define o mapeamento.
+
+A chave é um identificador único que será vista como um "endereço" para seu
+valor.
+
+A tabela pode ser organizada em memória como um vetor, dado que este
+permite acesso constante (o vetor é a estrutura de dados que podemos obter
+um registro em tempo constante, portanto na implementação de uma Tabela de
+Hash internamente utilizamos um vetor). 
+
+As chaves podem ser de qualquer tipo, mas para que os acessos sejam em
+tempo constante, é preciso uma função que mapeia as chaves como números
+inteiros (função Hash). Como a implementação é um vetor, esse valor inteiro
+define a posição de um elemento no vetor. 
+
+Assim, seja hash a função que faz o mapeamento (também chamada de função de
+espalhamento) e key a chave, o endereço de memória será dado por hash(key).
+
+Se os valores retornados por hash(key) forem bem distribuídos em um
+intervalo entre 0 e N-1, então precisamos apenas de um vetor de capacidade
+N.
+
+E inicialmente iremos assumir ausência de colisões, ou seja, apenas essa
+estrutura básica de um vetor seria suficiente, já que não haverá duas
+chaves diferentes mapeando um mesmo espaço de memória (isso é uma
+idealização, para isso, nosso vetor deve ser muito grande em relação ao
+número de elementos que ele irá armazenar, pois quanto mais elementos
+armazena, maior a probabilidade de haver colisões, e a função hash em si
+dependendo de como é implementada, como ela trata as colisões, interfere no
+número de colisões).
+
+/* FUNÇÕES DE HASH */
+
+A função hash mapeia cada chave em um intervalo de 0 a N-1, onde N é a
+capacidade de arranjo (vetor). 
+
+Colisões são tratáveis, mas inicialmente vamos evitar as colisões.
+
+Uma função hash é boa ou mais eficiente quando minimiza o número de
+colisões. (isso será visto em seguida)
+
+Assim, a função hash transforma uma entrada (uma chave) em um inteiro.
+
+Como exemplo, vamos assumir que iremos armazenar informações de
+funcionários de uma empresa e indexar essas informações pelo login único da
+pessoa.
+
+O login pode ser o primeiro nome da pessoa, como não deve haver colisões,
+se o nome já estiver em uso, outro nome diferente precisará ser escolhido.
+Então, por exemplo, se já tiver um nome Ronaldo, poderia ser escolhido algo
+como "Ronaldo02".
+
+A implementação da função hash poderia ser por exemplo, o mapeamento de
+cada caractere do login usando a tabela ASCII, de forma que o número final
+seja a soma dos caracteres, então:
+
+Ronaldo02 = (R) 82 + (o) 111 * 2 (2 os) + (n) 110 + (a) 97 + (l) 108 + 
+            (d) 110 + (0) 48 + (2) 50
+          = 817
+
+Assim, para acessar dados associados à chave Ronaldo02, usamos o índice 817
+no vetor, e isso pode ser feito em tempo constante (o mapeamento do índice
+pode ser feito a qualquer momento), ao se limitar o tamanho do login a um
+tamanho máximo de k caracteres.
+
+Essa poderia ser um exemplo de função hash, mas nomes com mesmo caracteres,
+por exemplo, Anita e Tania, vão ter o mesmo índice. Dessa forma, para
+melhorar essa função hash, ela poderia levar em conta a posição dos
+caracteres. Dessa forma, suponha o login como uma sequência de caracteres:
+
+c = {c0, c1, c2, ..., ck-2, ck-1}
+
+e poderíamos multiplicar cada caractere por um índice, por exemplo, por um
+valor entre 0 e 1, elevado a um expoente associado ao número de caracteres
+na sequência:
+
+c0 * a^k-1 + c1 * a^k-2 + c2 * a^k-3 + ... + ck-2 * a^1 + ck-1 * a^0
+
+Então suponha a=3 para login Ronaldo02:
+
+Ronaldo02 = 82 * 3^8 + 111 * 3^7 + 110 * 3^6 + 97 * 3^5 + 108 * 3^4 + 
+            110 * 3^3 + 111 * 3^2 + 48 * 3^1 + 50 * 3^0
+          
+          = 82 * 6561 + 111 * 2187 + 110 * 729 + 97 * 243 + 108 * 81 +
+            100 * 27 + 111 * 9 + 48 * 3 + 50 
+
+          = 3588644
+
+A escolha do valor a, interfere no número de colisões. O número de colisões
+diminui quando a é um número primo (pois diminui a padronização de
+distribuição do dados), e quanto "maior" for seu valor.
+
+Estudos mostram que para um número de 50 mil palavras o valor a=41, gera em
+torno de no máximo 7 colisões. Isso quer dizer, que a partir de um índice
+do que procuramos, precisamos procurar por até 7 vezes dentro desse índice
+até encontrar o que queremos.  
+
+Ou seja, nesse caso, é possivel fazer com que cada endereço tenha espaço
+para mais de uma entrada. 
+
+No entanto, um valor muito alto de a, pode levar a um overflow do intervalo
+de inteiros (pode explodir a capacidade de inteiros), ou gerar um tabela
+hash muito grande. 
+
+Por isso, determinadas funções hash fazem a compressão desses valores,
+aplicando o resto da divisão pelo tamanho do vetor, por exemplo:
+
+tamanho módulo N
+
+Note que, o tamanho do vetor interfere no número de colisões. Um vetor de
+tamanho 10 vezes maior que outro, terá menos colisões que o menor. Quanto
+maior o vetor, maior será o espalhamento. 
+
+Para ajudar o espalhamento das chaves, é comum usar um número primo para N,
+pois isso diminui a chance de ocorrer padrões na distribuição de dados.
+
+Por exemplo, se temos as chaves {200, 205, 210, 215, 220,..., 600}:
+
+com N=100, cada chave irá colidir com diversas chaves. Porque o resto da
+divisão por N, de 200, 300, 400, 500 e 600 são iguais.
+
+com N=101, não teremos colisões. Porque o uso de um número primo quebra o
+padrão dos dados. 
+
+Portanto, em relação a tabela hash o tamanho do vetor é importante, já que
+possibilita espalhar mais os dados, diminuindo as colisões, assim como a
+própria função hash dependendo de sua implementação pode diminuir as
+colisões, como a escolha do fator de multiplicação, que pode quebrar o
+padrão de distribuição dos dados.
+
+
+/* APLICAÇÃO */
+
+Tabelas hash são implementadas para armazenar uma coleção de dados e para
+depois obter os registros de forma eficiente. 
+
+Isso se a tabela hash for bem estruturada. Assim sendo, a inserção e
+obtenção de dados será em tempo constante.
+
+

@@ -1,0 +1,59 @@
+/* TABELA HASH CONSIDERANDO COLISÕES */
+
+Foi visto anteriormente, como simplificação, tabelas Hash sem colisões. 
+No entanto, isso não faz sentido, já que essa estrutura é usada para 
+armazenar dados de forma relativamente numerosa e eficiente, portanto, 
+ocorrerá colisões, o que precisa ser tratado.
+
+Veremos Encadeamento Separado e Teste Linear como formas de lidar com 
+colisões.
+
+A presenção de colisões, quando duas chaves k1 e k2 geram h(k1) = h(k2),
+ou seja, quando apontam para o mesmo endereço de memória, isso impede 
+que se faça a inserção imediata de um novo item (k, v) diretamente 
+em A[h(k)] (na posição h(k) do arranjo A).
+
+Para tratar as colisões, podemos utilizar tanto um espaço de memória 
+adicional quanto um espaço no p´roprio arranjo. 
+
+
+/* ENCADEAMENTO SEPARADO */
+
+Uma ideia para tratar colisões de forma simples é fazer com que cada 
+elemento A[i] seja, na verdade, um ponteiro para uma lista encadeada. 
+Isto é, na posição em que ocorre a colisão, utiliza-se um ponteiro para 
+uma lista de elementos que se colidem.
+
+Essa lista de elementos encadeados é um espaço adicional alocado 
+posteriornente, por isso o termo "separado". 
+
+Lembrando que uma boa função de hash faz com que a maior parte dos 
+endereços esteja vazia ou com apenas um elemento. Ou seja, a consulta 
+de um elemento, inserção ou remoção poderiam ocorrer em tempo constante.  
+
+Ao colocar n elementos e N endereços, espera-se ter n/N entradas 
+por endereço. O valor n/N, chamado de fator de carga, deveria ser limitado
+por uma constante, idealmente menor que 1, ou seja, sobram espaços vazios 
+e os endereços ocupados são limitados por uma constante k (isto é, a 
+lista encadeada não pode crescer ilimitadamente).
+
+
+/* TESTE LINEAR */
+
+As colisões são tratadas sem alocação de memória adicional, sendo usado 
+o próprio arranjo. Portanto, diferentemente do Encadeamento Separado, o 
+vetor não é de ponteiros. 
+
+Assim, ao se tentar inserir um item (k, v) em um endereço A[i] ocupado, 
+com i = h(k), tenta-se de novo no endereço A[(i+1) mod N], e as tentativas
+continuam até se encontrar um endereço vazio que aceite o novo item. 
+
+Assim, o termo "Teste Linear" faz referência a verificação da posição de
+inserção, que é feita em posições conseguintes até encontrar uma vazia.
+Então, uma posição de inserção é recebida e se ela está ocupada, a posição
+seguinte é verificada até encontrar uma posição para inserção. 
+
+
+/* IMPLEMENTAÇÃO */
+
+
