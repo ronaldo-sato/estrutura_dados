@@ -9,4 +9,4 @@
 // Inserções ocorrem no final da fila, e remoções ocorrem no início.
 
 // Inserções e remoções devem ocorrer em tempo constante. Em outras palavras, 
-// independem do número de elementos na estrutura. 
+// independem do número de elementos na estrutura.

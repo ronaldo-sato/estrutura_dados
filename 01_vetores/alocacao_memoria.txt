@@ -2,131 +2,131 @@
 /* PONTEIROS */
 
 
-// Ponteiro é uma variável cujo conteúdo é um endereço de memória
+Ponteiro é uma variável cujo conteúdo é um endereço de memória
 
-// Assim, se x é um ponteiro para y, dizemos que x aponta para y
+Assim, se x é um ponteiro para y, dizemos que x aponta para y
 
-// Sintaxe ponteiros (declaração):
+Sintaxe ponteiros (declaração):
 
 tipo* nome;
 
-// ou
+ou
 
 tipo *nome;
 
-// onde:
+onde:
 
-// tipo se refere para qual tipo de dados o ponteiro estará apontando
-// e nome é o nome da variável, cujo conteúdo será indefinido (como ainda não 
-// foi inicializada)
+tipo se refere para qual tipo de dados o ponteiro estará apontando e nome é
+o nome da variável, cujo conteúdo será indefinido (como ainda não foi
+inicializada)
 
-// Os endereços podem ser a localização na memória de uma variável ou função
-// (na verdade, a variável em si já é um ponteiro)
+Os endereços podem ser a localização na memória de uma variável ou função
+(na verdade, a variável em si já é um ponteiro)
 
-// Esse endereço é a localização do primeiro byte ocupado (na memória) por 
-// ela (variável ou função)
+Esse endereço é a localização do primeiro byte ocupado (na memória) por ela
+(variável ou função)
 
-// Conhecer o endereço de uma variável permite criar estruturas mais complexas
+Conhecer o endereço de uma variável permite criar estruturas mais complexas
 
-// Por exemplo, listas encadeadas são implementadas com um item que conhece o 
-// endereço do item seguinte (um nó guardando duas informações, ele armazena 
-// um valor e aponta pro item seguinte, que está em outra região de memória),
-// permitindo o encadeamento 
+Por exemplo, listas encadeadas são implementadas com um item que conhece o
+endereço do item seguinte (é um nó guardando duas informações, ele armazena
+um valor e aponta pro item seguinte, que está em outra região de memória),
+permitindo o encadeamento 
 
-// A possibilidade de trabalhar diretamente com a memória permite criar 
-// programas mais eficientes
+A possibilidade de se trabalhar diretamente com a memória permite criar
+programas mais eficientes
 
-// Acima, vimos como declarar o ponteiro e há duas formas de se obter o 
-// endereço de memória: de forma estática (em tempo de compilação) ou de 
-// forma dinâmica (em tempo de execução)
+Acima, vimos como declarar o ponteiro e há duas formas de se obter o
+endereço de memória: de forma estática (em tempo de compilação) ou de forma
+dinâmica (em tempo de execução)
 
 
 /* ALOCAÇÃO DE MEMÓRIA */
 
 
-// Alocação dinâmica de memória é um mecanismo de alocação e desalocação 
-// de memória por meio de ponteiros no tempo de execução do programa
+Alocação dinâmica de memória é um mecanismo de alocação e desalocação de
+memória por meio de ponteiros no tempo de execução do programa
 
-// Vantagens:
+Vantagens:
 
-// 1 - Não é necessário definir o tamanho da memória a ser utilizada
+1 - Não é necessário definir o tamanho da memória a ser utilizada
 
-// 2 - Possibilidade de aumentar e diminuir o tamanho da memória utilizada 
-// em tempo de execução
+2 - Possibilidade de aumentar e diminuir o tamanho da memória utilizada em
+tempo de execução
 
-// Os operadores "new" e "delete" efetuam a alocação e desalocação de memória,
-// respectivamente. Via de regra, toda vez que a memória for alocada será 
-// necessário desalocar para que não ocorra vazamento de memória
+Os operadores "new" e "delete" efetuam a alocação e desalocação de memória,
+respectivamente. Via de regra, toda vez que a memória for alocada será
+necessário desalocar para que não ocorra vazamento de memória
 
-// Variáveis alocadas dinamicamente residem em local de memória diferente 
-// das que foram alocadas estaticamente 
+Variáveis alocadas dinamicamente residem em local de memória diferente das
+que foram alocadas estaticamente 
 
-// Exemplo: alocando memória dinamicamente para armazenar um inteiro:
+Exemplo: alocando memória dinamicamente para armazenar um inteiro:
 
-// declarando o ponteiro do tipo int:
+declarando o ponteiro do tipo int:
 
 int* intPointer;
 
-// inicializando o ponteiro, que aponta uma nova região de memória que cabe um 
-// inteiro:
+inicializando o ponteiro, que aponta uma nova região de memória que cabe um
+inteiro:
 
 intPointer = new int; 
 
-// OBS: uma variável alocada dinamicamente com new, como feito acima, não possui
-// nome; essa variável precisa ser acessada indiretamente pelo ponteiro 
-// retornado por new; então não existe uma variável cujo valor está nessa região
-// de memória alocada, o que existe é um ponteiro que aponta para essa região 
-// de memória, cujo valor pode ser acessado por meio desse ponteiro
+OBS: uma variável alocada dinamicamente com new, como feito acima, não
+possui nome; essa variável precisa ser acessada indiretamente pelo ponteiro
+retornado por new (então não existe uma variável cujo valor está nessa
+região de memória alocada, o que existe é um ponteiro que aponta para essa
+região de memória, cujo valor pode ser acessado por meio desse ponteiro)
 
-// Para acessar indiretamente o conteúdo do ponteiro, utilizamos o operador "*",
-// que retorna o conteúdo da variável localizada em determinado endereço:
+Para acessar indiretamente o conteúdo do ponteiro, utilizamos o operador
+"*", que retorna o conteúdo da variável localizada em determinado endereço:
 
-// Sintaxe:
-// Para obter o conteúdo que está localizado no endereço apontado por 
-// intPointer:
+Sintaxe: Por exemplo, para obter o conteúdo que está localizado no endereço
+apontado por intPointer:
 
 // Declarando a variável que irá armazenar o conteúdo do ponteiro:
 
 int anotherInt;
 
-// anotherInt recebe o valor da região de memória que está sendo apontada por 
-intPointer:
+// anotherInt recebe o valor da região de memória que está sendo apontada
+// por intPointer:
 
 anotherInt = *intPointer;
 
-// OBS: anotherInt está associado a alguma outra região de memória, isto é, não 
-// estará associado a região de memória do ponteiro, o que acontece é que o 
-// valor associado ao ponteiro será duplicado a essa outra região de memória 
-// associada a anotherInt
+OBS: anotherInt está associado a alguma outra região de memória, isto é,
+não estará associado a região de memória do ponteiro, o que acontece é que
+o valor associado ao ponteiro será duplicado a essa outra região de memória
+associada a anotherInt
 
-// Para alterar o conteúdo que está localizado no endereço apontado por 
-// intPointer, por exemplo alterar para 25, fazemos:
+Para alterar o conteúdo que está localizado no endereço apontado por
+intPointer, por exemplo alterar para 1, fazemos:
 
-*intPointer = 25;
+*intPointer = 1;
 
-// Por definição, um ponteiro com valor zero aponta para vazio e para não 
-// confundir com o inteiro zero, é conveniente usar a constante NULL do pacote
-// cstddef:
+Por definição, um ponteiro com valor zero aponta para vazio e para não
+confundir com o inteiro zero, é conveniente usar a constante NULL do pacote
+cstddef:
 
 #include <cstddef>
-bool* truth =  NULL;
+bool* truth = NULL;
 float* money = NULL;
 
-// Vamos observar a memória após algumas operações:
+Vamos observar a memória após algumas operações:
 
-//Declarando um ponteiro chamado truth que aponta para um booleano:
+// Declarando um ponteiro chamado truth que aponta para um booleano:
 
 bool* truth = new bool;
 
-//Atribuindo o valor true para o espaço de memória que esse ponteiro aponta:
+// Atribuindo o valor true para o espaço de memória que esse ponteiro
+aponta:
 
 *truth = true;
 
-//Declarando um ponteiro chamado money que aponta para um float:
+// Declarando um ponteiro chamado money que aponta para um float:
 
 float* money = new float;
 
-//Atribunindo o valor 34.31 para o espaçode memória que money aponta:
+// Atribunindo o valor 34.31 para o espaço de memória que money aponta:
 
 *money = 34.31;
 
@@ -134,34 +134,35 @@ float* money = new float;
 
 float* myMoney = new float;
 
-// Lembrando que para obter o valor que o ponteiro aponta fazemos *variável,
-// onde variável é o nome da variável.
+Lembrando que para obter o valor que o ponteiro aponta, fazemos *variável
+(onde variável é o nome da variável)
 
-// Conforme o tipo do ponteiro, podemos aplicar as respectivas operações a esse 
-// tipo no ponteiro, então, por exemplo:
+Conforme o tipo do ponteiro, podemos aplicar as respectivas operações a
+esse tipo no ponteiro, então, por exemplo:
 
 // Podemos incrementar o ponteiro para inteiros:
 
 *intPointer++;
 
-// Cuidados com Ponteiros - atribuições completamente diferentes:
+Cuidados com Ponteiros - atribuições completamente diferentes:
 
-// Conteúdo da região de memória apontado por money é copiado para a região de 
-// memória apontada por myMoney:
+// Conteúdo da região de memória apontado por money é copiado para a região
+// de memória apontada por myMoney:
 
 *myMoney = *money;
 
-// myMoney passa a apontar para a mesma região de memória apontada por money:
+// myMoney passa a apontar para a mesma região de memória apontada por
+// money:
 
 myMoney = money;
 
-// Ao criar o ponteiro myMoney, um espaço de memória foi alocado na sua 
-// inicialização, e ao fazer com que myMoney aponte para o memso local de 
-// memória de money, isso proporciona vazamento de memória, já que o local de 
-// memória apontado por myMoney foi perdido.
+Ao criar o ponteiro myMoney, um espaço de memória foi alocado na sua
+inicialização, e ao fazer com que myMoney aponte para o mesmo local de
+memória de money, isso proporciona vazamento de memória, já que o local de
+memória apontado por myMoney foi perdido.
 
-// Assim, para que o vazamento de memória não ocorra, precisamos primeiro 
-// desalocar o espaço de memória inicialmente alocado com o operador delete:
+Assim, para que o vazamento de memória não ocorra, precisamos primeiro
+desalocar o espaço de memória inicialmente alocado com o operador delete:
 
 delete myMoney; // delete apenas libera a região que o ponteiro aponta
 myMoney = money; // delete não inutiliza myMoney
@@ -169,106 +170,110 @@ myMoney = money; // delete não inutiliza myMoney
 
 /* VETORES */
 
-// Vetores são a estrutura mais simples de um conjunto de dados.
 
-// Todos os elementos devem ser do mesmo tipo.
+Vetores são a estrutura mais simples de um conjunto de dados.
 
-// Tamanho fixado na declaração do vetor.
+Todos os elementos devem ser do mesmo tipo.
 
-// Os elementos ocupam regiões consecutivas de memória (possibilita 
-// otimizações: acesso à elementos pelo índice pode ocorrer em tempo constante).
+Tamanho fixado na declaração do vetor.
 
-// Sintaxe:
+Os elementos ocupam regiões consecutivas de memória (possibilita
+otimizações: acesso à elementos pelo índice pode ocorrer em tempo
+constante).
+
+Sintaxe:
 
 // Declarando vetor de tamanho 10 que armazena inteiros:
 
 int c[10];
 
-// Declarando e inicializando os 3 primeiros elementos, como não fornecemos 
-//os outros valores, eles são iniciados com zero:
+// Declarando e inicializando os 3 primeiros elementos (como não fornecemos
+// os outros valores, eles são iniciados com zero):
 
 int c[10] = {14, 0, 13}; // lista inicializadora
 
-// OBS: Apenas inicializar o vetor sem passar os elementos (sem inicializar os 
-// elementos), pode ocorrer coisas que não esperávamos caso tentemos acessar os 
-// valores do vetor, e provavelmente não ocorrerá nenhum erro em tempo de 
-// execução, entretanto você não sabe o que é aquilo que está dentro do vetor 
-// (pode depender do compilador, algum inicaliza com zero outro não).
-// Portanto, é conveninente inicializar os elementos do vetor usando uma lista
-// inicializadora ou iterando sobre os elementos. 
+OBS: Apenas inicializar o vetor sem passar os elementos (sem inicializar os
+elementos), pode ocorrer coisas que não esperávamos caso tentemos acessar
+os valores do vetor, e provavelmente não ocorrerá nenhum erro em tempo de
+execução, entretanto você não sabe o que é aquilo que está dentro do vetor
+(pode depender do compilador, algum inicaliza com zero outro não). 
+Portanto, é conveninente inicializar os elementos do vetor usando uma lista
+inicializadora ou iterando sobre os elementos. 
 
 // Os elementos podem ser acessados com a sintaxe de colchetes:
 
 c[5] = 30; // atribuindo ao elemento de posição 5 o valor de 30
 
-// Iterar sobre os elementos do vetor usando o laço de repetição for para 
+// Iterar sobre os elementos do vetor usando o laço de repetição for para
 // imprimir os elementos na tela:
 
 for (int i = 0; i < 10; i++) {
   std::cout << "c[" << i << "] = " << c[i] << "\n";
 }
 
-// OBS: o programador deve conhecer os limites do ventor antes do acesso, pois 
-// pode gerar problemas difíceis de depurar, pois acessar um elemento maior que 
-// o tamanho do vetor pode não dar problema.
+OBS: o programador deve conhecer a dimensão do vetor antes do acesso, pois
+pode gerar problemas difíceis de depurar, pois acessar um elemento maior
+que o tamanho do vetor pode não dar problema.
 
-// Esses vetores declarados acima são estáticos, pois o núemro de elementos é 
-// fixado em tempo de compilação.
+Esses vetores declarados acima são estáticos, pois o número de elementos é
+fixado em tempo de compilação.
 
-// Mas podemos declarar vetores em que o número de elementos será conhecido 
-// durante a execução com alocação dinâmica (usando new e delete).
+Mas podemos declarar vetores em que o número de elementos será conhecido
+durante a execução através de alocação dinâmica (usando new e delete).
 
-// OBS: o tamanho do vetor não poderá mudar após a declaração.
+OBS: o tamanho do vetor não poderá mudar após a declaração.
 
-// Sintaxe - alocação dinâmica de vetores:
+Sintaxe - alocação dinâmica de vetores:
 
-// Inicializando um ponteiro do tipo int (vetores são ponteiros) que aponta 
-// para um região de memória de tamanho suficiente para alocar num_elem 
+// Inicializando um ponteiro do tipo int (vetores são ponteiros) que aponta
+// para um região de memória de tamanho suficiente para alocar num_elem
 // elementos inteiros contíguos:
 
-int* c = new int[num_elem]; // em outras palavras, cria um vetor para armazenar
-// num_elem inteiros consecutivos
+int* c = new int[num_elem]; // em outras palavras, cria um vetor para
+// armazenar num_elem inteiros consecutivos
 
-// OBS: a variável recebe o endereço do primeiro elemento do vetor
+OBS: a variável recebe o endereço do primeiro elemento do vetor
 
-// No código, a única diferença entre alocação dinâmica e estática, é que a 
-// primeira é feita em tempo de execução enquanto a segunda em tempo de 
-// compilação, assim a vantagem é não precisar estimar o tamanho da memória a 
-// ser reservada, como necessário estaticamente. O resto do código é o mesmo.
+No código, a única diferença entre alocação dinâmica e estática, é que a
+primeira é feita em tempo de execução enquanto a segunda em tempo de
+compilação, assim a vantagem é não precisar estimar o tamanho da memória a
+ser reservada, como necessário estaticamente. O resto do código é o mesmo.
 
 // Para desalocar esse vetor inicializado dinamicamente, fazemos:
 
 delete [] c;
 
-// Como vetor é um ponteiro, ao passar o vetor para uma função estamos passando 
-// um ponteiro. 
+Como vetor é um ponteiro, ao passar o vetor para uma função estamos
+passando um ponteiro. 
 
-// Passagem de parâmetro:
+Passagem de parâmetro:
 
-// Ao declarar um vetor para inteiros de tamanho NUM_ELEM (por exemplo, como 
-// abaixo), o que ocorre quando inicializamos o vetor é que a variável c guarda
-// o endereço do primeiro byte do primeiro elemento:
+// Ao declarar um vetor para inteiros de tamanho NUM_ELEM (por exemplo,
+// como abaixo), o que ocorre quando inicializamos o vetor é que a variável
+c // guarda o endereço do primeiro byte do primeiro elemento:
 
 int c[NUM_ELEM];
 
-// O mesmo ocorre na alocação dinâmica, que também quando inicializada, a 
+// O mesmo ocorre na alocação dinâmica, que também quando inicializada, a
 // variável c recebe o endereço do primeiro byte do primeiro elemento:
 
 int* c = new int[NUM_ELEM];
 
-// Por isso, ao passar um vetor para uma função, no fundo o que passamos é um 
-// ponteiro. Veremos formas de se passar ponteiro para funções e o reflexo 
-// disso sobre os endereços.
+Por isso, ao passar um vetor para uma função, no fundo o que passamos é um
+ponteiro. Veremos formas de se passar ponteiro para funções e o reflexo
+disso sobre os endereços.
 
-// Asssim, as funções abaixo são formas de se passar ponteiros para uma função, 
-// cujo nome da função indica as formas como são passadas.
+Asssim, as funções abaixo são formas de se passar ponteiros para uma
+função, cujo nome da função indica as formas como são passadas.
 
-void valor_alocando_memoria(int* p)
-// Recebe p que é um ponteiro para int (passamos para a função um ponteiro, 
-// mas ele chega na função como cópia), portanto as alterações que ocorrerem 
-// a esse ponteiro, ocorrem localmente apenas e não tem reflexo fora da função
-{
-  // Fazendo o ponteiro p apontar para uma outra região de memória (também 
+// Função que recebe p, que é um ponteiro para int (passamos para a função
+// um ponteiro, mas ele chega na função como cópia), portanto as alterações
+// que ocorrerem a esse ponteiro, ocorrem localmente apenas e não tem 
+// reflexo fora da função: 
+
+void valor_alocando_memoria(int* p){
+  
+  // Fazendo o ponteiro p apontar para uma outra região de memória (também
   // para int)
   p = new int;
 
@@ -276,54 +281,54 @@ void valor_alocando_memoria(int* p)
   *p = 7;
 }
 
-void valor_modificando_memoria(int* p)
-// Recebe um ponteiro para int p (passamos para a função um ponteiro, que chega
-// como cópia, mas estamos alterando o conteúdo desse endereço, portanto isso 
-// tem reflexo fora da função)
-{
-  // Nessa posição que o ponteiro aponta, armazenamos o valor 8, assim como 
-  // estamos mexendo direto nesse endereço de memória, isso terá reflexo fora da 
-  // função
+// Função que recebe um ponteiro para int p (passamos para a função um 
+// ponteiro, que chega como cópia, mas estamos alterando o conteúdo desse
+// endereço, portanto isso tem reflexo fora da função):
+
+void valor_modificando_memoria(int* p) {
+
+  // Nessa posição que o ponteiro aponta, armazenamos o valor 8, assim como
+  // estamos mexendo direto nesse endereço de memória, isso terá reflexo 
+  // fora da função
   *p = 8;
 }
 
-void referencia(int*& p)
-// Passamos o ponteiro p, mas por referência (&), portanto as alterações que 
-// ocorrerem aqui na função terá reflexo fora da função (irá apontar para uma 
-// nova região de memória fora da função)
-{
-  // Assim como na função valor_alocando_memoria, fazemos o ponteiro 
-  // apontar para uma nova região de memória, mas como o ponteiro foi passado
-  // por referência, as alterações que ocorrerem com o ponteiro irá ter reflexos
-  // fora da função, então fora da função o ponteiro p, também irá apontar para 
-  // outra região de memória
+// Passamos o ponteiro p, mas por referência (&), portanto as alterações
+// que ocorrerem aqui na função terá reflexo fora da função (irá apontar
+// para uma nova região de memória fora da função) 
+
+void referencia(int*& p) {
+  
+  // Assim como na função valor_alocando_memoria, fazemos o ponteiro
+  // apontar para uma nova região de memória, mas como o ponteiro foi
+  // passado por referência, as alterações que ocorrerem com o ponteiro irá
+  // ter reflexos fora da função, então fora da função o ponteiro p, também
+  // irá apontar para outra região de memória
   p = new int;
 
   // Nessa nova região de memória definida acima, armazenamos o valor 9,
-  // portanto fora da função, esse ponteiro p também estará armazenando o 
+  // portanto fora da função, esse ponteiro p também estará armazenando o
   // valor 9, já que foi passado por referência
   *p = 9; 
 }
 
-// ATENÇÃO: Quando passamos um ponteiro concedemos acesso a respectiva região de 
-// memória, porque quando passamos um ponteiro, passamos o endereço de memória, 
-// permitindo que o conteúdo seja alterado.
+RESUMINDO: Quando passamos um ponteiro concedemos acesso a respectiva
+região de memória, porque quando passamos um ponteiro, passamos o endereço
+de memória, permitindo que o conteúdo seja alterado.
 
-// Ver programa "ex3_ponteiros_como_parametros.cpp" para ver experimentos com 
-// ponteiros e funções.
+Ver programa "ex3_ponteiros_como_parametros.cpp" para ver experimentos com
+ponteiros e funções.
 
-// Conclusões do experimento:
+Conclusões do experimento:
 
-// Como as variáveis usadas nos vetores são ponteiros, a função sabe o endereço 
-// onde os elementos estão armazenados;
+Como as variáveis usadas nos vetores são ponteiros, a função sabe o
+endereço onde os elementos estão armazenados;
 
-// Nesse caso, as modificações dentro da função naquele endereço de memória 
-// surtirão efeito também fora da função;
+Nesse caso, as modificações dentro da função naquele endereço de memória
+surtirão efeito também fora da função;
 
-// Em outras palavras, quem invoca a função passando um vetor concede acesso 
-// direto aos dados e a permissão de modificá-los;
+Em outras palavras, quem invoca a função passando um vetor concede acesso
+direto aos dados e a permissão de modificá-los;
 
-// Não dar essa permissão implicaria em copiar o vetor para outro lugar de na 
-// memória.
-
-
+Não dar essa permissão implicaria em copiar o vetor para outro lugar de na
+memória.

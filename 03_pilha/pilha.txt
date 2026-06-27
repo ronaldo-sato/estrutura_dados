@@ -1,72 +1,72 @@
-
 /* PILHAS */
 
-// Uma pilha é uma estrutura linear (cada elemento tem somente um predecessor e 
-// somente um sucessor) na qual inserções e remoções ocorrem no topo da pilha.
+Uma pilha é uma estrutura linear (cada elemento tem somente um predecessor
+e somente um sucessor) na qual inserções e remoções ocorrem no topo da
+pilha.
 
-// Para entender a ideia e funcionamento de pilha, suponha que duas pessoas 
-// estão lavando e enxugando pratos. Ao terminar de lavar um prato, a pessoa 
-// o coloca no topo da pilha (pratos para serem enxugados).
-// Quem enxuga, tira um prato do topo para enxungar e guardar. Se a pilha está 
-// muito cheia, quem lava faz uma pausa, e se a pilha está vazia, quem enxuga 
-// faz uma pausa.
+Para entender a ideia e funcionamento de pilha, suponha que duas pessoas 
+estão lavando e enxugando pratos. Ao terminar de lavar um prato, a pessoa 
+o coloca no topo da pilha (pratos para serem enxugados).
+Quem enxuga, tira um prato do topo para enxungar e guardar. Se a pilha está 
+muito cheia, quem lava faz uma pausa, e se a pilha está vazia, quem enxuga 
+faz uma pausa.
 
-// Assim, como o exemplo acima, são feitas algumas operações em pilhas. 
-// A pessoa que lava coloca no topo da pilha um novo prato. Suponha que o 
-// tamanho da pilha tem um limite, então a pessoa que lava precisa se preocupar
-// se a pilha está cheia. Não necessariamente, ou muito improvável, a pessoa que 
-// enxuga os pratos faça isso na mesma velocidade que a quem lava. Para enxugar 
-// um prato, a pessoa pega um prato do topo da pilha. Assim, ela precisa 
-// verificar se tem algum prato para ser enxugado. 
+Assim, como o exemplo acima, são feitas algumas operações em pilhas. A
+pessoa que lava coloca no topo da pilha um novo prato. Suponha que o
+tamanho da pilha tem um limite, então a pessoa que lava precisa se
+preocupar se a pilha está cheia. Não necessariamente, ou muito improvável,
+a pessoa que enxuga os pratos faça isso na mesma velocidade que a quem
+lava. Para enxugar um prato, a pessoa pega um prato do topo da pilha.
+Assim, ela precisa verificar se tem algum prato para ser enxugado. 
 
 
 /* OPERAÇÕES COMUNS */
 
-// push() - inserir um elemento no topo da pilha.
+push() - inserir um elemento no topo da pilha.
 
-// isFull() - retorna um booleano se a pilha está cheia.
+isFull() - retorna um booleano se a pilha está cheia.
 
-// pop() - remove e retorna o elemento do topo da pilha, se ela não estiver 
-// vazia.
+pop() - remove e retorna o elemento do topo da pilha, se ela não estiver 
+vazia.
 
-// isEmpty() - retorna um booleano se a pilha estiver vazia.
+isEmpty() - retorna um booleano se a pilha estiver vazia.
 
-// peek() - retorna o elemento no topo da pilha sem removê-lo.
+peek() - retorna o elemento no topo da pilha sem removê-lo.
 
-// size() - retorna o tamanho da pilha (n° de itens).
+size() - retorna o tamanho da pilha (n° de itens).
 
 
 /* RESUMINDO */
 
-// O primeiro elemento a entrar na estrutura é o último a sair: 
-// FILO (first-in-last-out);
+O primeiro elemento a entrar na estrutura é o último a sair: FILO 
+(first-in-last-out);
 
-// O último elemento a entrar é o último a sair: LIFO (last-in-fisrt-out);
+O último elemento a entrar é o último a sair: LIFO (last-in-first-out);
 
-// Inserções e remoções ocorrem no topo;
+Inserções e remoções ocorrem no topo;
 
-// Comportamento semelhante ao "botão desfazer" (ctrl+z) de editor de texto.
+Comportamento semelhante ao "botão desfazer" (ctrl+z) de editor de texto.
 
 
 /* APLICAÇÕES */
 
-// A principal utilidade da estrutura de pilha é quando precisamos garantir 
-// alinhamento de componentes em processos. 
+A principal utilidade da estrutura de pilha é quando precisamos garantir 
+alinhamento de componentes em processos. 
 
-// Chamada de funções na execução de programas; (Se uma função chama uma função
-// essa outra função precisa retornar algo para a função anterior, ou 
-// implementação de funções recursivas, onde cada chamada é empilhada e depois 
-// no retorno, as chamadas vão sendo desempilhadas.)
+Chamada de funções na execução de programas; (Se uma função chama uma
+função essa outra função precisa retornar algo para a função anterior, ou
+implementação de funções recursivas, onde cada chamada é empilhada e depois
+no retorno, as chamadas vão sendo desempilhadas.)
 
-// Mecanismos de desfazer/refazer em aplicações gerais;
+Mecanismos de desfazer/refazer em aplicações gerais;
 
-// Análise de sintaxe de linguagens de programação (verificação sintática em 
-// compiladores);
+Análise de sintaxe de linguagens de programação (verificação sintática em 
+compiladores);
 
-// Verificação de alinhamento de parênteses em strings;
+Verificação de alinhamento de parênteses em strings;
 
-// Avaliação de expressões aritméticas em certas calculadoras;
+Avaliação de expressões aritméticas em certas calculadoras;
 
-// Operações de backtracking (em rotas de mapas e jogos, por exemplo);
+Operações de backtracking (em rotas de mapas e jogos, por exemplo);
 
-// NLP (Natural Language Processing).
+NLP (Natural Language Processing).
